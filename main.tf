@@ -9,7 +9,7 @@ terraform {
   }
 }
 
-module "fiber-ecr-repository" {
+module "fiber-and-node-ecr-repositories" {
   source = "./modules/ecr"
   express_node_api_name = local.node_express_api_repo_name
   fiber_go_api_name = local.fiber_go_api_repo_name
