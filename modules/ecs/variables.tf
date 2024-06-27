@@ -1,6 +1,6 @@
 variable "interseguros_cluster_name" {
     description = "Nombre ECS Interseguros Cluster"
-    type = "string"
+    type = string
 }
 
 variable "availability_zones" {
@@ -56,4 +56,29 @@ variable "go_listen_port" {
 variable "node_listen_port" {
   description = "Puerto de Escucha del Contenedor Node Express"
   type        = number
+}
+
+variable "project_name" {
+  description = "Nombre del proyecto"
+  type = string
+}
+
+variable "ecs_task_execution_role_name" {
+  description = "Nombre del Rol"
+  type = string
+}
+
+variable "load_balancer_name" {
+  description = "Nombre del Load Balancer"
+  type = string
+}
+
+variable "express_service_name" {
+  description = "Nombre ECS Service para Node Express"
+  type = string
+}
+
+variable "fiber_service_name" {
+  description = "Nombre ECS Service para Go Fiber"
+  type = string
 }
