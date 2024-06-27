@@ -27,7 +27,7 @@ Este repositorio contiene código Terraform para manejar Infraestructura como c�
 4. **Crear Terraform Plan ECR**
 
    ```sh
-  terraform plan -target='module.fiber-and-node-ecr-repositories' -out='ecr.plan'
+   terraform plan -target='module.fiber-and-node-ecr-repositories' -out='ecr.plan'
 
 5. **Aplicar Terraform Plan ECR**
 
@@ -35,8 +35,8 @@ Este repositorio contiene código Terraform para manejar Infraestructura como c�
    terraform apply "ecr.plan"
 
 6. **Publicar imagenes docker ECR**
-- Clonar el repositorio de https://github.com/Jorge2824/api-factorizacion-qr-go-v1 y https://github.com/Jorge2824/api-factorizacion-qr-node-v1.
-- Desplegar los Dockerfiles en las urls de las imágenes del ECR creadas recientemente.
+   - Clonar el repositorio de https://github.com/Jorge2824/api-factorizacion-qr-go-v1 y https://github.com/Jorge2824/api-factorizacion-qr-node-v1.
+   - Desplegar los Dockerfiles en las urls de las imágenes del ECR creadas recientemente.
 
 7. **Crear Terraform Plan ECS**
 
