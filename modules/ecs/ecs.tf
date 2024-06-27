@@ -115,6 +115,12 @@ resource "aws_lb_target_group" "fiber_target_group" {
   port     = var.go_listen_port
   protocol = "HTTP"
   vpc_id   = aws_default_vpc.default_vpc.id
+  target_type = "ip"
+
+  lifecycle {
+    create_before_destroy = true
+    ignore_changes = [name]
+  }
 }
 
 resource "aws_lb_target_group" "express_target_group" {
@@ -122,6 +128,12 @@ resource "aws_lb_target_group" "express_target_group" {
   port     = var.node_listen_port
   protocol = "HTTP"
   vpc_id   = aws_default_vpc.default_vpc.id
+  target_type = "ip"
+
+  lifecycle {
+    create_before_destroy = true
+    ignore_changes = [name]
+  }
 }
 
 resource "aws_lb_listener" "http_listener" {

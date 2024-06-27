@@ -24,15 +24,29 @@ Este repositorio contiene código Terraform para manejar Infraestructura como c�
    ```sh
    terraform validate
 
-4. **Crear Terraform Plan**
+4. **Crear Terraform Plan ECR**
 
    ```sh
-   terraform plan
+  terraform plan -target='module.fiber-and-node-ecr-repositories' -out='ecr.plan'
 
-5. **Aplicar Terraform Plan**
+5. **Aplicar Terraform Plan ECR**
 
    ```sh
-   terraform apply
+   terraform apply "ecr.plan"
+
+6. **Publicar imagenes docker ECR**
+- Clonar el repositorio de https://github.com/Jorge2824/api-factorizacion-qr-go-v1 y https://github.com/Jorge2824/api-factorizacion-qr-node-v1.
+- Desplegar los Dockerfiles en las urls de las imágenes del ECR creadas recientemente.
+
+7. **Crear Terraform Plan ECS**
+
+   ```sh
+   terraform plan -target='module.ecsCluster' -out='ecs.plan'
+
+8. **Aplicar Terraform Plan ECS**
+
+   ```sh
+   terraform apply "ecs.plan"
 
 ## Limpiar
 Para eliminar la infraesctructura creada por Terraform, usa el siguiente comando:
