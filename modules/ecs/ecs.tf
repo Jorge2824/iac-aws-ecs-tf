@@ -117,6 +117,14 @@ resource "aws_lb_target_group" "fiber_target_group" {
   vpc_id   = aws_default_vpc.default_vpc.id
   target_type = "ip"
 
+  health_check {
+    interval            = 30
+    path                = "/fiber/health"
+    timeout             = 20
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+  }
+
   lifecycle {
     create_before_destroy = true
     ignore_changes = [name]
@@ -129,6 +137,14 @@ resource "aws_lb_target_group" "express_target_group" {
   protocol = "HTTP"
   vpc_id   = aws_default_vpc.default_vpc.id
   target_type = "ip"
+
+  health_check {
+    interval            = 30
+    path                = "/express/health"
+    timeout             = 20
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+  }
 
   lifecycle {
     create_before_destroy = true
